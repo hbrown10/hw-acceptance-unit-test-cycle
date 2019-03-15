@@ -1,0 +1,17 @@
+-#  This file is app/views/movies/similar.html.haml
+%h2= "Movies Similar to #{@movie.title}"
+
+%table.table-striped.col-md-10#movies
+  %thead
+    %tr
+      %th{:class => @title_header}= 'Movie Title'
+      %th{:class => @date_header}= 'Release Date'
+      %th More Info
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title 
+        %td= movie.rating
+        %td= movie.release_date
+        %td= movie.director
+        %td= link_to "More about #{movie.title}", movie_path(movie)

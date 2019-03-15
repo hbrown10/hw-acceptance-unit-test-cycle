@@ -23,3 +23,13 @@ Then /I should see all the movies/ do
     step %{I should see "#{movie.title}"}
   end
 end
+
+Then /I should see the movie "(.*)"/ do |m|
+  step %{I should see "#{m.title}"}
+end
+
+Then /the director of "(.*)" should be "(.*)"/ do |e1, e2|
+
+  step %{I should see "#{e2}"}
+
+end
