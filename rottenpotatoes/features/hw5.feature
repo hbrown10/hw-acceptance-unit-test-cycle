@@ -40,8 +40,8 @@ Scenario: add movie to the database
   And I press "Save Changes"
   Then I should see "Test Movie was successfully created."
   
-#Scenario: delete movie from database
-#  Given I am on the details page for "Star Wars"
-#  And I press "Delete"
-#  Then I should see "Movie 'Star Wars' deleted."
+Scenario: delete movie from database
+  Given I am on the details page for "Star Wars"
+  And I press "Delete"
+  Then I should see "Movie 'Star Wars' deleted."
   

@@ -62,9 +62,12 @@ class MoviesController < ApplicationController
   end
   
   def similar
-    @movie = Movie.where(id: params[:id]).firstd
-    redirect_to movies_path if @movie.director.blank?
-    @movies = Movie.where(director: @movie.director)
+    @movie = Movie.find(params[:id])
+    if @movie.director.blank?
+      flash[:warning] = "'#{@movie.title}' has no director info."
+      return redirect_to movies_path
+    end
+    @movies = @movie.find_with_same_director
   end
 
 end
